@@ -2,6 +2,7 @@ from flask import Flask,request
 from sklearn.pipeline import Pipeline
 import numpy as np
 import joblib
+import pickle
 import json
 
 
