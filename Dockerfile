@@ -8,11 +8,8 @@ ENV PATH="VIRTUAL_ENV/bin:$PATH"
 WORKDIR /app
 ADD . /app
 
-# set permition
-RUN chmod 777 app.py
-
 # Install dependencies
-RUN pip install --user -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Expose port 
 ENV PORT 8080
