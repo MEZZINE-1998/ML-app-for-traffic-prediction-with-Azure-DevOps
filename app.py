@@ -13,10 +13,6 @@ predected_data = 0.0
 # load pipeline
 pipeline = joblib.load('transform_predict.joblib')
 
-@app.route('/', methods=["GET"])
-def home():
-    return "Hello world this is my ML app to predict futur traffic"
-
 @app.route("/makePrediction", methods=["POST", "GET"])
 def makePrediction():
 
@@ -49,4 +45,4 @@ def makePrediction():
 
       
 if __name__ == "__main__":
-    app.run(debug=True, threaded=False)
+    app.run(host="0.0.0.0", threaded=False)
