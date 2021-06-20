@@ -11,5 +11,8 @@ ADD . /app
 # Install dependencies
 RUN pip install -r requirements.txt
 
+# exposed port
+EXPOSE 8080
+
 # Run the application:
 CMD ["python", "app.py"]
