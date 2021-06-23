@@ -13,14 +13,31 @@ predected_data = 0.0
 # load pipeline
 pipeline = joblib.load('transform_predict.joblib')
 
+print('0')
+
+@app.routr("/")
+def home():
+    return "Hello world"
+
+print('1')
+
 @app.route("/makePrediction", methods=["POST", "GET"])
 def makePrediction():
+    
+    print('2')
+
 
     global predected_data
     global pipeline
+    
+    print('3')
+
 
     if request.method == "POST":
         #  get data
+        
+        print('4')
+
         test_data = request.get_json()
 
         # data preparation
@@ -34,6 +51,9 @@ def makePrediction():
 
         # invert predictions (output)
         predected_data = pipeline['scaler'].inverse_transform(predected_data)[0][0]
+
+        
+    print('5')
 
     pred_obj = {"prediction": float(predected_data)}
     json_dump = json.dumps(pred_obj)
