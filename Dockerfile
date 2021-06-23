@@ -9,7 +9,6 @@ ADD . /app
 RUN pip install -r requirements.txt
 
 RUN chmod -R 777 /app
-RUN chmod 777 /app/app.py
 
 # Run the application:
 CMD ["python", "app.py"]
