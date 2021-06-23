@@ -1,10 +1,18 @@
 FROM python:3.7
 
+RUN pip install virtualenv
+ENV VIRTUAL_ENV=/venv
+RUN virtualenv venv -p python3
+ENV PATH="VIRTUAL_ENV/bin:$PATH"
+
 WORKDIR /app
+ADD . /app
 
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
+# Install dependencies
+RUN pip install -r requirements.txt
 
-COPY . .
+# Expose port 
+ENV PORT 8080
 
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+# Run the application:
+CMD ["python", "app.py"]
