@@ -15,7 +15,7 @@ pipeline = joblib.load('transform_predict.joblib')
 
 print('0')
 
-@app.routr("/")
+@app.route("/")
 def home():
     return "Hello world"
 
