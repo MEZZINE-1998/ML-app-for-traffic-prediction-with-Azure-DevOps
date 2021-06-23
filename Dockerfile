@@ -1,13 +1,10 @@
 FROM python:3.7
 
-
 WORKDIR /app
-ADD . /app
 
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
 
-# Install dependencies
-RUN pip install -r requirements.txt
+COPY . .
 
-
-# Run the application:
-CMD ["python", "app.py"]
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
