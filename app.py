@@ -15,17 +15,10 @@ pipeline = joblib.load('transform_predict.joblib')
 
 print('0')
 
-@app.route("/")
+@app.route("/", methods=["POST", "GET"])
 def home():
-    return "Hello world"
-
-print('1')
-
-@app.route("/makePrediction", methods=["POST", "GET"])
-def makePrediction():
     
     print('2')
-
 
     global predected_data
     global pipeline
